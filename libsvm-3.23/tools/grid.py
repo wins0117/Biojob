@@ -19,15 +19,15 @@ class GridOption:
 		dirname = os.path.dirname(__file__)
 		if sys.platform != 'win32':
 			self.svmtrain_pathname = os.path.join(dirname, '../svm-train')
-			self.gnuplot_pathname = '/usr/bin/gnuplot'
+			self.gnuplot_pathname = 'C:\Program Files\gnuplot\bin\gnuplot.exe'
 		else:
 			# example for windows
 			self.svmtrain_pathname = os.path.join(dirname, r'..\windows\svm-train.exe')
 			# svmtrain_pathname = r'c:\Program Files\libsvm\windows\svm-train.exe'
-			self.gnuplot_pathname = r'c:\tmp\gnuplot\binary\pgnuplot.exe'
+			self.gnuplot_pathname = r'C:\Program Files\gnuplot\bin\gnuplot.exe'
 		self.fold = 5
 		self.c_begin, self.c_end, self.c_step = -5,  15,  2
-		self.g_begin, self.g_end, self.g_step =  3, -15, -2
+		self.g_begin, self.g_end, self.g_step =  10, -10, -2
 		self.grid_with_c, self.grid_with_g = True, True
 		self.dataset_pathname = dataset_pathname
 		self.dataset_title = os.path.split(dataset_pathname)[1]
