@@ -1,0 +1,10 @@
+.test ul{list-style:none; }
+.test li{float:left;width:100px;background:#CCC;margin-left:3px;line-height:30px;text-align:center}
+.test a:link{color:#666;background:#CCC;text-decoration:none;}
+.test a:visited{color:#666;text-decoration:underline;}
+.test a:hover{color:#FFF; font-weight:bold;text-decoration:underline;background:#F00;}
+.test a{display:block；text-align:center;height:30px;}
+
+
+.tittle { font-size:22pt;font-weight:bold}
+.info	{ font-size:12pt;}
