@@ -1,0 +1,39 @@
+import re 
+from Bio import SeqIO
+from decimal import *
+f = open('n.txt', 'w', encoding = 'UTF-8')
+for seq_record in SeqIO.parse("reduced_all_nonallergens.fasta", "fasta"):
+    print(seq_record.seq)
+    b=(seq_record.seq)
+    str = "".join(b)
+    print(seq_record.id)
+    for i in range(65,91):
+        x=''.join(chr(i))
+        a = [m.start()+1 for m in re.finditer(x, str)]
+        a= map(int, a)
+        count = 0
+        countall = 0
+        for index in a:
+            countall+=1
+            if( index%2!=0):
+                count+=1
+        print(x,"所出現次數:",countall)
+        print(x,"奇數出現次數:",count)
+        if(countall!=0 and i==65):
+            s=Decimal((count/countall)*100).quantize(Decimal('0.00'))
+            f.write("{} {}:{}".format(1,0,s))
+            print(x,":",s,"%")
+        elif(countall!=0 and i!=65):
+            s=Decimal((count/countall)*100).quantize(Decimal('0.00'))
+            f.write(" {}:{}".format(i-65,s))
+            print(x,":",s,"%")
+        elif(countall==0 and i==65):
+            
+            f.write("{} {}:{}".format(1,0,"0.00"))
+            print(x,": 0.00 %")
+        else:
+            f.write(" {}:{}".format(i-65,"0.00"))
+            print(x,": 0.00 %")
+        
+    f.write("\n")
+f.close()
